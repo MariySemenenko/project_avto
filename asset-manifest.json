@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/project_avto/static/css/main.7acaea2f.css",
+    "main.js": "/project_avto/static/js/main.091d5f33.js",
+    "index.html": "/project_avto/index.html",
+    "main.7acaea2f.css.map": "/project_avto/static/css/main.7acaea2f.css.map",
+    "main.091d5f33.js.map": "/project_avto/static/js/main.091d5f33.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.091d5f33.js"
+  ]
+}
