@@ -1,4 +1,4 @@
-import { Overlay, ModalContainer, CloseButton, cancelButton } from './Modal.styled';
+import { Overlay, ModalContainer, CloseButton, A, Ul, } from './Modal.styled';
 import { ImCross } from 'react-icons/im';
 
 
@@ -8,13 +8,21 @@ function Modal({ closeModal, advert }) {
   const city = address[address.length - 2];
   const country = address[address.length - 1];
 
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   return (
-    <Overlay>
+    <Overlay className={closeModal ? 'open' : 'closed'} onClick={handleBackdropClick}>
+     
+   
       <ModalContainer>
       <CloseButton onClick={closeModal}>
           <ImCross />
         </CloseButton>
-        <button onClick={closeModal} className={cancelButton}>Cancel</button>
+        {/* <button onClick={closeModal} className={cancelButton}>Cancel</button> */}
         
         <img src={advert.img} alt="car" width={461} height={248} />
         <h2>
@@ -33,14 +41,16 @@ function Modal({ closeModal, advert }) {
           })}
         </ul>
         <h3>Rental Conditions: </h3>
-        <ul>
+        <Ul>
           {conditions.map(condition => {
             return <li>{condition} |</li>;
           })}
-        </ul>
-        <a href="tel:+380730000000">Rental car</a>
+        </Ul>
+        <A href="tel:+380730000000" >Rental car</A>
       </ModalContainer>
-    </Overlay>
+     
+    
+      </Overlay>
   );
 }
 
