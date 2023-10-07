@@ -2,7 +2,7 @@
 import React from 'react'
 import { Navigate, Route, Routes } from "react-router-dom"
 import Home from './pages/Home/Home';
-import Catalog from './pages/Catalog/Catalog';
+import Catalog from './pages/Catalog/CatalogPage';
 import Favorites from './pages/Favorites/Favorites';
 import Layout from './Layout/Layout';
 
