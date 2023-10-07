@@ -1,16 +1,13 @@
 import styled from "styled-components";
 
 export const Overlay = styled.div`
-  position: fixed;
+    position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1200;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const ModalContainer = styled.div`
@@ -19,4 +16,12 @@ export const ModalContainer = styled.div`
   border-radius: 24px;
   background: #fff;
   padding: 40px;
+  margin-left: auto;
+    margin-right: auto;
 `;
+export const CloseButton = styled.button`
+    fill: black;
+`
+export const cancelButton = styled.button`
+    display: none;
+`

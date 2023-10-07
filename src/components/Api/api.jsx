@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-axios.defaults.baseURL='https://65217a54a4199548356d42c6.mockapi.io/api/v1/'
+axios.defaults.baseURL = 'https://65217a54a4199548356d42c6.mockapi.io';
 const limit = 8;
 
 async function api(page) {
@@ -13,3 +13,4 @@ async function api(page) {
 }
 
 export default api;
+//RxCross1
