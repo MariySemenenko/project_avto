@@ -1,41 +1,22 @@
-import { Overlay, ModalContainer } from "./Modal.styled";
+import styled from "styled-components";
 
-function Modal({ closeModal, advert }) {
-  const conditions = advert.rentalConditions.split("\n");
-  const address = advert.address.split(",");
-  const city = address[address.length - 2];
-  const country = address[address.length - 1];
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
+`;
 
-  return (
-    <Overlay>
-      <ModalContainer>
-        <button onClick={closeModal}>Cancel</button>
-        <img src={advert.img} alt="car" width={461} height={248} />
-        <h2>
-          {advert.make} <span>{advert.model}</span>, {advert.year}
-        </h2>
-        <p>
-          {city} | {country} | Id: {advert.id} | Year: {advert.year} | Type:{" "}
-          {advert.type} | Fuel Consumption: {advert.fuelConsumption} | Engine
-          Size: {advert.engineSize}
-        </p>
-        <p>{advert.description}</p>
-        <h3>Accessories and functionalities:</h3>
-        <ul>
-          {advert.functionalities.map((functionaliti) => {
-            return <li>{functionaliti} |</li>;
-          })}
-        </ul>
-        <h3>Rental Conditions: </h3>
-        <ul>
-          {conditions.map((condition) => {
-            return <li>{condition} |</li>;
-          })}
-        </ul>
-        <a href="tel:+380730000000">Rental car</a>
-      </ModalContainer>
-    </Overlay>
-  );
-}
-
-export default Modal;
+export const ModalContainer = styled.div`
+  width: 541px;
+  height: 752px;
+  border-radius: 24px;
+  background: #fff;
+  padding: 40px;
+`;

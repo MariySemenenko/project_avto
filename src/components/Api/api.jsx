@@ -1,5 +1,6 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://651fc0b1906e276284c373de.mockapi.io/api/v1/";
+
+axios.defaults.baseURL='https://65217a54a4199548356d42c6.mockapi.io/api/v1/'
 const limit = 8;
 
 async function api(page) {

@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
+
 import api from "../Api/api";
+import { AdvertsList } from "./Catalog.styled";
+import ButtonLoad from "components/ButtonLoad/ButtonLoad";
+import AdvertItem from "components/AdvertItem/AdvertItem";
 
 
 function Catalog() {
@@ -26,12 +30,12 @@ function Catalog() {
     <>
       {adverts && (
         <>
-          <ul>
+          <AdvertsList>
             {adverts.map((advert) => {
-              return <li key={advert.id} advert={advert} />;
+              return <AdvertItem key={advert.id} advert={advert} />;
             })}
-          </ul>
-          <button onFindMore={onFindMore} />
+          </AdvertsList>
+          <ButtonLoad  onFindMore={onFindMore} />
         </>
       )}
     </>
