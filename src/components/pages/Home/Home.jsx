@@ -5,7 +5,7 @@ import avtopark from '../../img/avtopark.jpg';
 
  function Home() {
   return (<Container>
-    <div>
+    <div className='container'>
     <Avtopark src={avtopark} alt="Car logo" />
     <P>
     If you need a car temporarily, the fastest and most economical

@@ -10,3 +10,10 @@ export const FavouritesContainer = styled.div`
 export const AdvertsContainer = styled.div`
   width: 938px;
 `;
+export const Container = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 34px;
+  padding-right: 34px;
+  width: 1440px;
+  `

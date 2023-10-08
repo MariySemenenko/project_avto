@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,17 +7,17 @@ import {
 } from '../../redux/catalog/catalogSlice';
 
 import api from '../Api/api';
-import { AdvertsList } from './Catalog.styled';
+import { AdvertsList, Container } from './Catalog.styled';
 import AdvertItem from 'components/AdvertItem/AdvertItem';
 import ButtonLoad from 'components/ButtonLoad/ButtonLoad';
 
 function Catalog() {
   const dispatch = useDispatch();
-  
+
   const page = useSelector(state => state.catalog.page);
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
- 
+
   const onFindMore = () => {
     dispatch(onNextPage());
     getAdverts(page);
@@ -60,7 +59,7 @@ function Catalog() {
   });
 
   return (
-    <>
+    <Container>
       {adverts && (
         <>
           {filteredAdverts.length > 0 ? (
@@ -75,54 +74,8 @@ function Catalog() {
           <ButtonLoad onFindMore={onFindMore} />
         </>
       )}
-    </>
+    </Container>
   );
 }
 
 export default Catalog;
-
-
-// import { useEffect, useState } from "react";
-
-// import api from "../Api/api";
-// import { AdvertsList } from "./Catalog.styled";
-// import ButtonLoad from "components/ButtonLoad/ButtonLoad";
-// import AdvertItem from "components/AdvertItem/AdvertItem";
-
-// function Catalog() {
-//   const [adverts, setAdverts] = useState([]);
-//   const [page, setPage] = useState(1);
-
-//   const onFindMore = () => {
-//     setPage((prevPage) => prevPage + 1);
-//   };
-
-//   useEffect(() => {
-//     getAdverts(page);
-//   }, [page]);
-
-//   const getAdverts = (page) => {
-//     api(page)
-//       .then((results) => {
-//         setAdverts((prevAdverts) => [...prevAdverts, ...results]);
-//       })
-//       .catch((err) => console.error("error:" + err));
-//   };
-
-//   return (
-//     <>
-//       {adverts && (
-//         <>
-//           <AdvertsList>
-//             {adverts.map((advert) => {
-//               return <AdvertItem key={advert.id} advert={advert} />;
-//             })}
-//           </AdvertsList>
-//           <ButtonLoad  onFindMore={onFindMore} />
-//         </>
-//       )}
-//     </>
-//   );
-// }
-
-// export default Catalog;

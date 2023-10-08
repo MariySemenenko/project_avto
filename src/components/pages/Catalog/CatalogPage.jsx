@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFilters } from 'redux/catalog/catalogSlice';
 
 
+
 function CatalogPage() {
   const dispatch = useDispatch();
   const adverts = useSelector((state) => state.catalog.adverts);
@@ -14,11 +15,11 @@ function CatalogPage() {
   };
 
   return (
-  <>
+  <div className='container'>
     
     <CarFilter adverts={adverts} onFilterChange={handleFilterChange} />
     <Catalog />
-    </>
+    </div>
   )
 }
 export default CatalogPage;

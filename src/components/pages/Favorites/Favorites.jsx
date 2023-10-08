@@ -2,7 +2,7 @@
 import React from "react";
 import { AdvertsList } from "../../Catalog/Catalog.styled";
 
-import { AdvertsContainer, FavouritesContainer } from "./Favorites.styled";
+import { AdvertsContainer, FavouritesContainer, Container } from "./Favorites.styled";
 import { useSelector, useDispatch } from "react-redux";
 import { setFiltersFavorite  } from "../../../redux/catalog/catalogSlice";
 
@@ -38,6 +38,7 @@ function Favorites() {
   });
 
   return (
+    <Container>
     <FavouritesContainer className="container">
      
       <AdvertsContainer>
@@ -53,6 +54,7 @@ function Favorites() {
       </AdvertsContainer>
       <CarFilter onFilterChange={handleFilterChange} />
     </FavouritesContainer>
+    </Container>
   );
 }
 
