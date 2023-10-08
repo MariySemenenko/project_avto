@@ -4,7 +4,7 @@ import avtolog from '../img/avtolog.jpg';
 
 function Layout() {
   return (
-    <div>
+    <div className='container'>
       <Header>
         <LinkLogo to="/">
           <img src={avtolog} alt="Car logo" width={100} />

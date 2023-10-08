@@ -1,21 +1,23 @@
 import styled from 'styled-components';
 
 export const Avtopark = styled.img`
-  width: 100%;
+  
+
+  /* width: 100vw; */
+    height: 100vh;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
 `;
 
 export const P = styled.p`
- width: 50%;
+ /* width: 50%;
   padding: 60px 24px;
   border-radius: 12px;
   margin-top: 48px;
-  background-image: url(${Avtopark});
+
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  color: #ffffff;
-`;
-export const Container = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
+  background-position: center center; */
+  color: blue;
 `;
