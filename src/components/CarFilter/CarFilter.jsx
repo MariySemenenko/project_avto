@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import makes from "../Makes/makes.json";
-import { Container, Form, CarBrand, Price, Mileage, Input,  } from "./CarFilter.styled.jsx";
+import { Container, Form, CarBrand, Price, Mileage, Input, Button, Select, InputNumber,  } from "./CarFilter.styled.jsx";
 
 const CarFilter = () => {
   const [selectedMake, setSelectedMake] = useState("");
@@ -21,21 +21,21 @@ const CarFilter = () => {
       <Form onSubmit={handleFormSubmit}>
         <CarBrand>
           <label>Car brand</label>
-          <select
+          <Select
             value={selectedMake}
             onChange={(e) => setSelectedMake(e.target.value)}
           >
-            <option value="">Select a brand</option>
+            <option value="">Enter the text</option>
             {makes.map((make, index) => (
               <option key={index} value={make}>
                 {make}
               </option>
             ))}
-          </select>
+          </Select>
         </CarBrand>
         <Price>
           <label>Price/ 1 hour</label>
-          <select
+          <Select
             value={selectedPrice}
             onChange={(e) => setSelectedPrice(e.target.value)}
           >
@@ -45,18 +45,18 @@ const CarFilter = () => {
                 ${price * 10}
               </option>
             ))}
-          </select>
+          </Select>
         </Price>
         <Mileage>
           <label>Сar mileage / km</label>
           <Input>
-          <input
+          <InputNumber
             type="number"
             value={minMileage}
             onChange={(e) => setMinMileage(e.target.value)}
             placeholder="From"
           />
-          <input
+          <InputNumber
             type="number"
             value={maxMileage}
             onChange={(e) => setMaxMileage(e.target.value)}
@@ -64,7 +64,7 @@ const CarFilter = () => {
           />
           </Input>
         </Mileage>
-        <button type="submit">Search</button>
+        <Button type="submit">Search</Button>
       </Form>
     </Container>
   );
