@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import makes from "../Makes/makes.json";
 import { Container, Form, CarBrand, Price, Mileage, Input, Button, Select, InputNumber,  } from "./CarFilter.styled.jsx";
 
-const CarFilter = () => {
+const CarFilter = ({onFilterChange}) => {
   const [selectedMake, setSelectedMake] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [minMileage, setMinMileage] = useState("");
@@ -10,10 +10,16 @@ const CarFilter = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Car brand=", selectedMake);
-    console.log("Price/ 1 hour=", selectedPrice);
-    console.log("From =", minMileage);
-    console.log("To=", maxMileage);
+
+    const filters = {
+      selectedMake,
+      selectedPrice,
+      minMileage,
+      maxMileage,
+    };
+    onFilterChange(filters);
+
+   
   };
 
   return (

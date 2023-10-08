@@ -13,4 +13,3 @@ async function api(page) {
 }
 
 export default api;
-//RxCross1
