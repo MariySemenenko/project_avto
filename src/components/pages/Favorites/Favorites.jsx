@@ -2,7 +2,7 @@
 import React from "react";
 import { AdvertsList } from "../../Catalog/Catalog.styled";
 
-import { AdvertsContainer, FavouritesContainer, Container } from "./Favorites.styled";
+import { AdvertsContainer, FavouritesContainer, } from "./Favorites.styled";
 import { useSelector, useDispatch } from "react-redux";
 import { setFiltersFavorite  } from "../../../redux/catalog/catalogSlice";
 
@@ -38,10 +38,11 @@ function Favorites() {
   });
 
   return (
-    <Container>
+    // <Container>
     <FavouritesContainer className="container">
      
       <AdvertsContainer>
+      <CarFilter onFilterChange={handleFilterChange} />
         {filteredFavorites.length > 0 ? (
           <AdvertsList>
             {filteredFavorites.map((advert) => (
@@ -52,52 +53,11 @@ function Favorites() {
           <div>No matching favorites found</div>
         )}
       </AdvertsContainer>
-      <CarFilter onFilterChange={handleFilterChange} />
+      
     </FavouritesContainer>
-    </Container>
+    // </Container>
   );
 }
 
 export default Favorites;
 
-// import React from "react";
-// import { useEffect, useState } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// //import { useSelector } from "react-redux";
-// import AdvertItem from "components/AdvertItem/AdvertItem";
-// import { AdvertsList } from "components/Catalog/Catalog.styled";
-// import api from "components/Api/api";
-
-// function Favorites() {
-//   const [adverts, setAdverts] = useState([]);
-
-//   useEffect(() => {
-//     getAdverts();
-//   }, []);
-
-//   const getAdverts = () => {
-//     api()
-//       .then((results) => {
-//         setAdverts(results);
-//       })
-//       .catch((err) => console.error("error:" + err));
-//   };
-
-//   const favorites = useSelector((state) => state.favorite.items);
-// console.log(favorites)
-//   return (
-//     <div className="container">
-//       {adverts && (
-//         <>
-//           <AdvertsList>
-//             {favorites.map((advert) => {
-//               return <AdvertItem key={advert.id} advert={advert} />;
-//             })}
-//           </AdvertsList>
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default Favorites;
