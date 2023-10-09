@@ -18,17 +18,10 @@ function Catalog() {
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
 
- const onFindMore = () => {
-  console.log('Button clicked');
+  const onFindMore = () => {
+    // console.log('Button clicked');
     dispatch(onNextPage());
     getAdverts(page);
-//
-    // then(results => {
-    //   console.log('Results:', results); 
-    //   dispatch(setAdverts(results));
-    // })
-    // .catch(err => console.error('error:', err)); 
-    //
   };
 
   const getAdverts = page => {
@@ -67,7 +60,7 @@ function Catalog() {
   });
 
   return (
-    <Container className='container'>
+    <Container className="container">
       {adverts && (
         <>
           {filteredAdverts.length > 0 ? (

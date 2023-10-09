@@ -16,6 +16,8 @@ export const CardLi = styled.li`
   flex-direction: column;
   width: 274px;
   height: 426px;
+
+  margin-bottom: 30px;
 `;
 
 export const CarWrapper = styled.div`
@@ -38,8 +40,10 @@ export const CarImage = styled.img`
   border-radius: 12px;
   object-fit: cover;
   overflow: hidden;
-  width: 274px;
-  height: 268px;
+  max-width: 100%; 
+  max-height: 100%;
+
+  
 `;
 
 export const CarTitle = styled.div`
