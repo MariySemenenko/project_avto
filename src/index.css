@@ -13,11 +13,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container {
+  width: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+@media screen and (min-width: 834px) {
+  .container {
+    width: 834px;
+    padding-left: 27px;
+    padding-right: 27px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media screen and (min-width: 1440px) {
   .container {
     width: 1440px;
-    /* padding-left: 34px; */
+    padding-left: 34px;
     padding-right: 34px;
     margin-left: auto;
     margin-right: auto;

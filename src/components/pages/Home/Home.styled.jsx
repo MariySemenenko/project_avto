@@ -4,7 +4,7 @@ export const Avtopark = styled.img`
   
 
   /* width: 100vw; */
-    height: 100vh;
+    height: max-content;
     
     background-repeat: no-repeat;
     background-size: cover;
