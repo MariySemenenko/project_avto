@@ -1,7 +1,7 @@
 # project_avto
 ## This application starts:
-> npm start
+## npm start
 ## font-family:
-__, Menlo__
-__, Monaco__
-__, Consolas__
+## Menlo
+## Monaco
+## Consolas
