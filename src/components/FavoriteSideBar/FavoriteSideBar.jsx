@@ -30,7 +30,7 @@ const FavoriteSideBar = ({ onFilterChange }) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <FilterForm onSubmit={handleFormSubmit}>
         <SelectDiv>
           <Label>Car brand</Label>

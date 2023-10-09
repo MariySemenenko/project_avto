@@ -4,10 +4,10 @@ import avtolog from '../img/avtolog.jpg';
 
 function Layout() {
   return (
-    <div className='container'>
-      <Header>
+    <div >
+      <Header className='container'>
         <LinkLogo to="/">
-          <img src={avtolog} alt="Car logo" width={100} />
+          <img  src={avtolog} alt="Car logo" width={100} />
           Welcome to the auto shop
         </LinkLogo>
         <Links>
