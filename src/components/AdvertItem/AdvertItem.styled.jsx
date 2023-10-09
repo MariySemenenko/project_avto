@@ -1,6 +1,16 @@
 
 import styled from "styled-components";
+export const Img = styled.img`
+width: 15px;
+height: 13px;
+border: none;
+fill: white;
+color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    outline: none;
 
+`
 export const CardLi = styled.li`
   display: flex;
   flex-direction: column;

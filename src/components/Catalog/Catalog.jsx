@@ -22,6 +22,13 @@ function Catalog() {
   console.log('Button clicked');
     dispatch(onNextPage());
     getAdverts(page);
+//
+    // then(results => {
+    //   console.log('Results:', results); 
+    //   dispatch(setAdverts(results));
+    // })
+    // .catch(err => console.error('error:', err)); 
+    //
   };
 
   const getAdverts = page => {
