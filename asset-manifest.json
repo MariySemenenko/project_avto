@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/project_avto/static/css/main.6a3eea87.css",
-    "main.js": "/project_avto/static/js/main.1d2fe716.js",
+    "main.js": "/project_avto/static/js/main.97201dc3.js",
     "static/media/avtopark.jpg": "/project_avto/static/media/avtopark.cafb7c63df6ee3de6d44.jpg",
     "static/media/avtolog.jpg": "/project_avto/static/media/avtolog.1cde96d6eb5cc4fdc650.jpg",
     "static/media/heartAmpty.png": "/project_avto/static/media/heartAmpty.39b7a0feec0781b658f7.png",
     "index.html": "/project_avto/index.html",
     "main.6a3eea87.css.map": "/project_avto/static/css/main.6a3eea87.css.map",
-    "main.1d2fe716.js.map": "/project_avto/static/js/main.1d2fe716.js.map"
+    "main.97201dc3.js.map": "/project_avto/static/js/main.97201dc3.js.map"
   },
   "entrypoints": [
     "static/css/main.6a3eea87.css",
-    "static/js/main.1d2fe716.js"
+    "static/js/main.97201dc3.js"
   ]
 }
