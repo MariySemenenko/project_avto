@@ -18,7 +18,8 @@ function Catalog() {
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
 
-  const onFindMore = () => {
+ const onFindMore = () => {
+  console.log('Button clicked');
     dispatch(onNextPage());
     getAdverts(page);
   };
@@ -59,7 +60,7 @@ function Catalog() {
   });
 
   return (
-    <Container>
+    <Container className='container'>
       {adverts && (
         <>
           {filteredAdverts.length > 0 ? (
