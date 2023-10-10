@@ -1,8 +1,8 @@
 
 import styled from "styled-components";
 export const Img = styled.img`
-width: 15px;
-height: 13px;
+width: 20px;
+height: 20px;
 border: none;
 fill: white;
 color: inherit;
@@ -34,6 +34,8 @@ export const Favoritebutton = styled.button`
   top: 14px;
   right: 14px;
   background: transparent;
+  border: none;
+outline: none;
 `;
 
 export const CarImage = styled.img`
