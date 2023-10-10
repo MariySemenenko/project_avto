@@ -1,6 +1,5 @@
-
-import { useState } from "react";
-import Modal from "../Modal/Modal";
+import { useState } from 'react';
+import Modal from '../Modal/Modal';
 import {
   Img,
   CarImage,
@@ -10,19 +9,19 @@ import {
   CardLi,
   Favoritebutton,
   LearnButton,
-} from "./AdvertItem.styled";
-import { useDispatch, useSelector } from "react-redux";
+} from './AdvertItem.styled';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addToFavorites,
   removeFromFavorites,
-} from "../../redux/favorite/favoriteSlice";
-import iconAdd from "./../img/iconAdd.png";
-import heartAmpty from "./../img/heartAmpty.png";
+} from '../../redux/favorite/favoriteSlice';
+import iconAdd from './../img/iconAdd.png';
+import heartAmpty from './../img/heartAmpty.png';
 
 function AdvertItem({ advert }) {
   const [openModal, setOpenModal] = useState(false);
 
-  const address = advert.address.split(",");
+  const address = advert.address.split(',');
   const city = address[address.length - 2];
   const country = address[address.length - 1];
 
@@ -34,19 +33,19 @@ function AdvertItem({ advert }) {
     setOpenModal(false);
   };
 
-  const handleOnClose = (e) => {
-    if (e.code === "Escape") {
+  const handleOnClose = e => {
+    if (e.code === 'Escape') {
       closeModalHendler();
     }
   };
 
-  window.addEventListener("keydown", handleOnClose);
+  window.addEventListener('keydown', handleOnClose);
 
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorite.items);
+  const favorites = useSelector(state => state.favorite.items);
 
   const toggleFavorite = () => {
-    const isFavorite = favorites.some((favorite) => favorite.id === advert.id);
+    const isFavorite = favorites.some(favorite => favorite.id === advert.id);
 
     if (isFavorite) {
       dispatch(removeFromFavorites(advert));
@@ -60,7 +59,7 @@ function AdvertItem({ advert }) {
       <CardLi>
         <CarWrapper>
           <Favoritebutton onClick={toggleFavorite}>
-            {favorites.some((favorite) => favorite.id === advert.id) ? (
+            {favorites.some(favorite => favorite.id === advert.id) ? (
               <img src={iconAdd} alt="icon add" />
             ) : (
               <Img src={heartAmpty} alt="icon remove" />
@@ -80,7 +79,7 @@ function AdvertItem({ advert }) {
           </CarInfo>
           <CarInfo>
             {advert.type}&ensp;|&ensp;{advert.make}
-            &ensp;|&ensp;{Number(advert.mileage).toLocaleString("en")}
+            &ensp;|&ensp;{Number(advert.mileage).toLocaleString('en')}
             &ensp;|&ensp;{advert.accessories[0]}
           </CarInfo>
         </div>
