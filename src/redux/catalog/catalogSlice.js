@@ -17,6 +17,7 @@ const catalogSlice = createSlice({
       minMileage: "",
       maxMileage: "",
     },
+    isLoading: false,
   },
   reducers: {
     firstAdverts: (state, action) => {
@@ -41,6 +42,9 @@ const catalogSlice = createSlice({
         ...action.payload,
       };
     },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload; 
+    },
   },
 });
 
@@ -50,5 +54,6 @@ export const {
   firstAdverts,
   setFilters,
   setFiltersFavorite,
+  setIsLoading,
 } = catalogSlice.actions;
 export default catalogSlice.reducer;

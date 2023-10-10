@@ -4,12 +4,14 @@ import {
   onNextPage,
   setAdverts,
   firstAdverts,
+  setIsLoading,
 } from '../../redux/catalog/catalogSlice';
 
 import api from '../Api/api';
 import { AdvertsList, Container } from './Catalog.styled';
 import AdvertItem from 'components/AdvertItem/AdvertItem';
 import ButtonLoad from 'components/ButtonLoad/ButtonLoad';
+import Loader from 'Loader/Loader';
 
 function Catalog() {
   const dispatch = useDispatch();
@@ -17,9 +19,12 @@ function Catalog() {
   const page = useSelector(state => state.catalog.page);
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
+  const isLoading = useSelector(state => state.catalog.setIsLoading);
 
   const onFindMore = () => {
     // console.log('Button clicked');
+    dispatch(setIsLoading(true));
+    
     dispatch(onNextPage());
     getAdverts(page);
   };
@@ -29,7 +34,12 @@ function Catalog() {
       .then(results => {
         dispatch(setAdverts(results));
       })
-      .catch(err => console.error('error:' + err));
+      .catch(err => {
+        console.error('error:' + err);
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false)); 
+      });
   };
 
   useEffect(() => {
@@ -61,21 +71,27 @@ function Catalog() {
 
   return (
     <Container className="container">
-      {adverts && (
-        <>
-          {filteredAdverts.length > 0 ? (
-            <AdvertsList>
-              {filteredAdverts.map(advert => {
-                return <AdvertItem key={advert.id} advert={advert} />;
-              })}
-            </AdvertsList>
+    {adverts && (
+      <>
+        {filteredAdverts.length > 0 ? (
+          <AdvertsList>
+            {filteredAdverts.map(advert => {
+              return <AdvertItem key={advert.id} advert={advert} />;
+            })}
+          </AdvertsList>
+        ) : (
+          <div>No matching favorites found</div>
+        )}
+        <div>
+          {isLoading ? (
+            <Loader />
           ) : (
-            <div>No matching favorites found</div>
+            <ButtonLoad onFindMore={onFindMore} />
           )}
-          <ButtonLoad onFindMore={onFindMore} />
-        </>
-      )}
-    </Container>
+        </div>
+      </>
+    )}
+  </Container>
   );
 }
 
