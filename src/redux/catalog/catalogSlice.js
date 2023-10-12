@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import api from "redux/operations/Api/api";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -14,6 +15,7 @@ const catalogSlice = createSlice({
     adverts: [],
     page: 1,
     isLoading: false,
+    error: null,
     filters: {
       selectedMake: "",
       selectedPrice: "",
@@ -30,7 +32,7 @@ const catalogSlice = createSlice({
   },
   reducers: {
     firstAdverts: (state, action) => {
-      state.isLoading = false;
+      
       state.adverts = [...state.adverts, ...action.payload];
       state.page = state.page + 1;
     },
@@ -38,7 +40,7 @@ const catalogSlice = createSlice({
       state.adverts = [...state.adverts, ...action.payload];
     },
     onNextPage: (state) => {
-      state.isLoading = false;
+     
       state.page = state.page + 1;
     },
     setFilters: (state, action) => {
@@ -56,6 +58,16 @@ const catalogSlice = createSlice({
     setIsLoading: (state, action) => {
       state.isLoading = action.payload; 
     },
+
+    [api.pending]: handlePending,
+
+    [api.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.items = action.payload;
+    },
+    [api.rejected]: handleRejected,
+
   },
 });
 

@@ -7,7 +7,7 @@ import {
   setIsLoading,
 } from '../../redux/catalog/catalogSlice';
 
-import api from '../Api/api';
+import api from '../../redux/operations/Api/api';
 import { AdvertsList, Container } from './Catalog.styled';
 import AdvertItem from 'components/AdvertItem/AdvertItem';
 import ButtonLoad from 'components/ButtonLoad/ButtonLoad';
