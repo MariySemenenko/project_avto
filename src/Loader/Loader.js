@@ -1,18 +1,27 @@
-import { Audio } from  'react-loader-spinner'
-import React from 'react';
+import { Vortex } from "react-loader-spinner";
+import { LoaderDiv } from "./Loader.styled";
 
-export default function Loader() {
+function Loader() {
   return (
-    <div>
-    <Audio
-    height = "80"
-    width = "80"
-    radius = "9"
-    color = 'green'
-    ariaLabel = 'three-dots-loading'     
-    wrapperStyle
-    wrapperClass
-  />
-    </div>
+    <LoaderDiv>
+      <Vortex
+        visible={true}
+        height="120"
+        width="120"
+        ariaLabel="vortex-loading"
+        wrapperStyle={{}}
+        wrapperClass="vortex-wrapper"
+        colors={[
+          "#121417",
+          "#3470ff",
+          "rgba(18, 20, 23, 0.5)",
+          "#121417",
+          "#3470ff",
+          "rgba(18, 20, 23, 0.5)",
+        ]}
+      />
+    </LoaderDiv>
   );
 }
+
+export default Loader;

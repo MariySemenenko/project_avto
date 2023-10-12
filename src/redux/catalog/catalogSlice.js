@@ -1,10 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const handlePending = (state) => {
+  state.isLoading = true;
+};
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 const catalogSlice = createSlice({
   name: "catalog",
   initialState: {
     adverts: [],
     page: 1,
+    isLoading: false,
     filters: {
       selectedMake: "",
       selectedPrice: "",
@@ -17,10 +26,11 @@ const catalogSlice = createSlice({
       minMileage: "",
       maxMileage: "",
     },
-    isLoading: false,
+   
   },
   reducers: {
     firstAdverts: (state, action) => {
+      state.isLoading = false;
       state.adverts = [...state.adverts, ...action.payload];
       state.page = state.page + 1;
     },
@@ -28,6 +38,7 @@ const catalogSlice = createSlice({
       state.adverts = [...state.adverts, ...action.payload];
     },
     onNextPage: (state) => {
+      state.isLoading = false;
       state.page = state.page + 1;
     },
     setFilters: (state, action) => {
