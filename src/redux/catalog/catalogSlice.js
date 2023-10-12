@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import api from 'redux/operations/Api/api';
+//import api from 'redux/operations/Api/api';
 
-const handlePending = state => {
-  state.isLoading = true;
-};
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
+// const handlePending = state => {
+//   state.isLoading = true;
+// };
+// const handleRejected = (state, action) => {
+//   state.isLoading = false;
+//   state.error = action.payload;
+// };
 
 const catalogSlice = createSlice({
   name: 'catalog',
