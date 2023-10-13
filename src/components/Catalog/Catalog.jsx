@@ -67,9 +67,7 @@ function Catalog() {
     return true;
   });
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <Container className="container">
     {adverts && (
       <>
@@ -90,7 +88,11 @@ function Catalog() {
         
        
 
-           <> <ButtonLoad onFindMore={onFindMore} /></>
+       {isLoading ? (
+              <Loader />
+            ) : (
+              <ButtonLoad onFindMore={onFindMore} />
+            )}
          
 
        
