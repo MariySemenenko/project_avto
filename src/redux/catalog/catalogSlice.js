@@ -84,16 +84,20 @@
 
 
 
-import { createSlice } from '@reduxjs/toolkit';
- //import api from 'redux/operations/Api/api';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import api from 'redux/operations/Api/api';
 
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
+export const fetchAdverts = createAsyncThunk(
+  'catalog/fetchAdverts',
+  async (page, thunkAPI) => {
+    try {
+      const res = await api(page);
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  }
+);
 
 const catalogSlice = createSlice({
   name: 'catalog',
@@ -116,23 +120,26 @@ const catalogSlice = createSlice({
     },
   },
   reducers: {
-    firstAdverts: (state, action) => {
+    firstAdverts: (state) => {
       state.isLoading = true;
+      
     },
     firstAdvertsSuccess: (state, action) => {
       state.isLoading = false;
+      state.error = null;
       state.adverts = [...state.adverts, ...action.payload];
       state.page = state.page + 1;
-      state.error = null;
+      
     },
     firstAdvertsError: (state, action) => {
       state.isLoading = false;
-      state.error = action.payload;
+      state.error = null;
+      
     },
     setAdverts: (state, action) => {
       state.isLoading = false;
-      state.error = null;
-      state.adverts = [...state.adverts, ...action.payload];
+      state.error = action.payload;
+      // state.adverts = [...state.adverts, ...action.payload];
     },
     onNextPage: (state) => {
       state.page = state.page + 1;
@@ -150,7 +157,24 @@ const catalogSlice = createSlice({
       };
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAdverts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAdverts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.adverts = [...state.adverts, ...action.payload];
+        state.page = state.page + 1;
+      })
+      .addCase(fetchAdverts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      });
+  },
 });
+
 
 export const {
   firstAdverts,

@@ -5,7 +5,6 @@ import {
   setAdverts,
   firstAdverts,
   // fetchAdverts,
-  
 } from '../../redux/catalog/catalogSlice';
 
 import api from '../../redux/operations/Api/api';
@@ -22,9 +21,10 @@ function Catalog() {
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
   const isLoading = useSelector(selectIsLoading);
+  const error = useSelector((state) => state.catalog.error);
 
   const onFindMore = () => {
-    
+
     dispatch(onNextPage());
     getAdverts(page);
   };
@@ -98,6 +98,7 @@ function Catalog() {
        
       </>
     )}
+     {error && <div>Error: {error}</div>}
   </Container>
   
   );
