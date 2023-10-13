@@ -4,14 +4,15 @@ import {
   onNextPage,
   setAdverts,
   firstAdverts,
-  // setIsLoading,
+  
 } from '../../redux/catalog/catalogSlice';
 
 import api from '../../redux/operations/Api/api';
 import { AdvertsList, Container } from './Catalog.styled';
 import AdvertItem from 'components/AdvertItem/AdvertItem';
 import ButtonLoad from 'components/ButtonLoad/ButtonLoad';
-//import Loader from 'Loader/Loader';
+import Loader from 'Loader/Loader';
+import { selectIsLoading } from 'redux/selectors';
 
 function Catalog() {
   const dispatch = useDispatch();
@@ -19,11 +20,9 @@ function Catalog() {
   const page = useSelector(state => state.catalog.page);
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
-  // const isLoading = useSelector(state => state.catalog.setIsLoading);
+  const isLoading = useSelector(selectIsLoading);
 
   const onFindMore = () => {
-    // console.log('Button clicked');
-    // dispatch(setIsLoading(true));
     
     dispatch(onNextPage());
     getAdverts(page);
@@ -37,9 +36,7 @@ function Catalog() {
       .catch(err => {
         console.error('error:' + err);
       })
-      // .finally(() => {
-      //   dispatch(setIsLoading(false)); 
-      // });
+    
   };
 
   useEffect(() => {
@@ -80,17 +77,23 @@ function Catalog() {
             })}
           </AdvertsList>
         ) : (
-          <div>No matching favorites found</div>
+          <>
+          {!isLoading && (
+            <div>Sorry, no matching adverts found</div>
+          )}
+        </>
         )}
-        <div>
-          {/* {isLoading ? (
+       
+        
+        {isLoading ? (
             <Loader />
           ) : (
-            <ButtonLoad onFindMore={onFindMore} />
-          )} */}
- <ButtonLoad onFindMore={onFindMore} />
 
-        </div>
+
+           <> <ButtonLoad onFindMore={onFindMore} /></>
+          )}
+
+       
       </>
     )}
   </Container>
@@ -193,11 +196,13 @@ export default Catalog;
 //           <div>No matching favorites found</div>
 //         )}
 //         <div>
-//           {isLoading ? (
-//             <Loader />
-//           ) : (
-//             <ButtonLoad onFindMore={onFindMore} />
-//           )}
+          // {isLoading ? (
+          //   <Loader />
+          // ) : (
+
+
+          //   <ButtonLoad onFindMore={onFindMore} />
+          // )}
 //         </div>
 //       </>
 //     )}
@@ -206,3 +211,9 @@ export default Catalog;
 // }
 
 // export default Catalog;
+
+  // {/* {isLoading ? (
+  //           <Loader />
+  //         ) : (
+  //           <ButtonLoad onFindMore={onFindMore} />
+  //         )} */}
