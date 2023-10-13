@@ -34,29 +34,17 @@ const catalogSlice = createSlice({
       maxMileage: '',
     },
   },
-  reducers: {
-    firstAdverts: (state) => {
-      state.isLoading = true;
-      
-    },
-    firstAdvertsSuccess: (state, action) => {
-      state.isLoading = false;
-      state.error = null;
+   reducers: {
+    firstAdverts: (state, action) => {
       state.adverts = [...state.adverts, ...action.payload];
       state.page = state.page + 1;
-      
-    },
-    firstAdvertsError: (state, action) => {
-      state.isLoading = false;
-      state.error = null;
-      
     },
     setAdverts: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-      // state.adverts = [...state.adverts, ...action.payload];
+      state.error = null;
+      state.adverts = [...state.adverts, ...action.payload];
     },
-    onNextPage: (state) => {
+    onNextPage: state => {
+      state.error = null;
       state.page = state.page + 1;
     },
     setFilters: (state, action) => {

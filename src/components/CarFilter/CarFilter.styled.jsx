@@ -11,12 +11,12 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 20px; /* Додайте бажаний відступ між рядками */
+  margin-bottom: 20px; 
   & > div {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-right: 10px; /* Додайте бажаний відступ між елементами */
+    margin-right: 10px; 
   }
   & label {
     align-self: flex-start;
@@ -33,6 +33,11 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   margin-left: 400px;
+  /* @media screen and (min-width: 834px) {
+    width: 100%;
+  display: flex;
+  
+  } */
 `;
 export const CarBrand = styled.div`
   width: 224px;
