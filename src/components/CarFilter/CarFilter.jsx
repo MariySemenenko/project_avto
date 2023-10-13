@@ -23,7 +23,7 @@ const CarFilter = ({onFilterChange}) => {
   };
 
   return (
-    <Container>
+    <Container className="container">
       <Form onSubmit={handleFormSubmit}>
         <CarBrand>
           <label>Car brand</label>

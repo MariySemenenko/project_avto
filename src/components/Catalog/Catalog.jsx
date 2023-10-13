@@ -4,7 +4,7 @@ import {
   onNextPage,
   setAdverts,
   firstAdverts,
-  firstAdvertsSuccess,
+  // firstAdvertsSuccess,
 } from '../../redux/catalog/catalogSlice';
 
 import api from '../../redux/operations/Api/api';
@@ -44,7 +44,7 @@ function Catalog() {
     if (adverts.length === 0) {
       api(page).then(results => {
          dispatch(firstAdverts(results));
-         dispatch(firstAdvertsSuccess(results));
+        //  dispatch(firstAdvertsSuccess(results));
       });
     }
   }, [adverts.length, dispatch, page]);

@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 
-// export const Container = styled.div`
-//     display: flex;
-//   flex-direction: row;
-// `
+
 
 export const Container = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;  */
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
   & > div {
     flex: 1;
     display: flex;
@@ -33,11 +35,16 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   margin-left: 400px;
-  /* @media screen and (min-width: 834px) {
+  @media screen and (min-width: 834px) {
     width: 100%;
   display: flex;
   
-  } */
+  }
+  @media screen and (min-width: 834px) {
+    width: 100%;
+  display: flex;
+  
+  }
 `;
 export const CarBrand = styled.div`
   width: 224px;
@@ -54,9 +61,9 @@ export const Mileage = styled.div`
   height: 74px;
   margin-right: 8px;
   display: flex;
-  flex-direction: column; /* Змініть спрямування на колонку */
-  justify-content: flex-start; /* Зверху вниз */
-  align-items: flex-start; /* Зліва направо */
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: flex-start; 
 `;
 export const Input = styled.div`
   display: flex;
