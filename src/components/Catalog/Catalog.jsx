@@ -4,6 +4,7 @@ import {
   onNextPage,
   setAdverts,
   firstAdverts,
+  // fetchAdverts,
   
 } from '../../redux/catalog/catalogSlice';
 
@@ -66,7 +67,9 @@ function Catalog() {
     return true;
   });
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Container className="container">
     {adverts && (
       <>
@@ -78,25 +81,23 @@ function Catalog() {
           </AdvertsList>
         ) : (
           <>
-          {!isLoading && (
+          
             <div>Sorry, no matching adverts found</div>
-          )}
+          
         </>
         )}
        
         
-        {isLoading ? (
-            <Loader />
-          ) : (
-
+       
 
            <> <ButtonLoad onFindMore={onFindMore} /></>
-          )}
+         
 
        
       </>
     )}
   </Container>
+  
   );
 }
 
