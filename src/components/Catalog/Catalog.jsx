@@ -4,6 +4,7 @@ import {
   onNextPage,
   setAdverts,
   firstAdverts,
+  fetchAdverts,
 } from '../../redux/catalog/catalogSlice';
 
 import api from '../../redux/operations/Api/api';
@@ -21,20 +22,10 @@ function Catalog() {
   const filters = useSelector(state => state.catalog.filters);
   const error = useSelector((state) => state.catalog.error);
   const isLoading = useSelector(selectIsLoading)
-  //
-  
-  // useEffect(() => {
-  //   dispatch(fetchAdverts(1)); // Передаємо необхідний номер сторінки
-  // }, [dispatch]);
-
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
-//
 
 
   const onFindMore = () => {
-
+    dispatch(fetchAdverts(1));
     dispatch(onNextPage());
     getAdverts(page);
   };
@@ -79,6 +70,9 @@ function Catalog() {
   });
 
   return (
+  // return isLoading ? (
+  //   <Loader />
+  // ) : (
     <Container className="container">
     {adverts && (
       <>
@@ -97,15 +91,17 @@ function Catalog() {
         )}
        
         
-       
+       {/* <ButtonLoad onFindMore={onFindMore} /> */}
 
-       {isLoading ? (
+       {/* {isLoading ?  (
               <Loader />
             ) : (
               <ButtonLoad onFindMore={onFindMore} />
-            )}
+            )} */}
          
-
+         
+         {isLoading && <Loader />}
+{!isLoading && <ButtonLoad onFindMore={onFindMore} />}
        
       </>
     )}

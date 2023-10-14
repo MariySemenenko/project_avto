@@ -36,17 +36,19 @@ const catalogSlice = createSlice({
   },
    reducers: {
     firstAdverts: (state, action) => {
-     
+      state.isLoading = false;
       state.adverts = [...state.adverts, ...action.payload];
       state.page = state.page + 1;
     },
     setAdverts: (state, action) => {
+     
       state.error = null;
       state.adverts = [...state.adverts, ...action.payload];
     },
     onNextPage: state => {
       state.error = null;
       state.page = state.page + 1;
+      
     },
     setFilters: (state, action) => {
       state.filters = {
