@@ -4,7 +4,6 @@ import {
   onNextPage,
   setAdverts,
   firstAdverts,
-  // firstAdvertsSuccess,
 } from '../../redux/catalog/catalogSlice';
 
 import api from '../../redux/operations/Api/api';
@@ -12,16 +11,27 @@ import { AdvertsList, Container } from './Catalog.styled';
 import AdvertItem from 'components/AdvertItem/AdvertItem';
 import ButtonLoad from 'components/ButtonLoad/ButtonLoad';
 import Loader from 'Loader/Loader';
-import { selectIsLoading } from 'redux/selectors';
+ import { selectIsLoading } from '../../redux/selectors';
 
 function Catalog() {
   const dispatch = useDispatch();
-
+ 
   const page = useSelector(state => state.catalog.page);
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
-  const isLoading = useSelector(selectIsLoading);
   const error = useSelector((state) => state.catalog.error);
+  const isLoading = useSelector(selectIsLoading)
+  //
+  
+  // useEffect(() => {
+  //   dispatch(fetchAdverts(1)); // Передаємо необхідний номер сторінки
+  // }, [dispatch]);
+
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
+//
+
 
   const onFindMore = () => {
 

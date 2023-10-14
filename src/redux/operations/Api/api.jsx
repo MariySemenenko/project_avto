@@ -14,16 +14,6 @@ async function api(page) {
 export default api;
 
 //
-//  const api = createAsyncThunk('/adverts/?limit=${limit}&page=${page}', async (_, { rejectWithValue }) => {
-//   try {
-//     const response = await api.fetchAdverts(); // Replace with your actual API call
-//     return response.data;
-//   } catch (error) {
-//     return rejectWithValue(error.message);
-//   }
-// });
-
-// export default api;
 
 
     
