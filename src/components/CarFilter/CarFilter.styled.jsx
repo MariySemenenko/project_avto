@@ -1,24 +1,16 @@
 import styled from 'styled-components';
 
-
-
 export const Container = styled.div`
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  margin-bottom: 20px;  */
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
+
   & > div {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-right: 10px; 
+    margin-right: 10px;
   }
   & label {
     align-self: flex-start;
@@ -32,19 +24,8 @@ export const Container = styled.div`
   }
 `;
 export const Form = styled.form`
-  width: 100%;
   display: flex;
-  margin-left: 400px;
-  @media screen and (min-width: 834px) {
-    width: 100%;
-  display: flex;
-  
-  }
-  @media screen and (min-width: 834px) {
-    width: 100%;
-  display: flex;
-  
-  }
+  padding-left: 250px;
 `;
 export const CarBrand = styled.div`
   width: 224px;
@@ -61,9 +42,9 @@ export const Mileage = styled.div`
   height: 74px;
   margin-right: 8px;
   display: flex;
-  flex-direction: column; 
-  justify-content: flex-start; 
-  align-items: flex-start; 
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 export const Input = styled.div`
   display: flex;
@@ -86,19 +67,7 @@ export const Button = styled.button`
   margin-bottom: 6px;
 `;
 export const Select = styled.select`
-     border-radius: 14px;
-  background: rgba(247, 247, 251, 1);
-  padding: 14px 18px 14px 18px;
-  justify-content: center;
-  align-items: center;
-  color: rgba(18, 20, 23, 1);
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px; 
-`
-export const InputNumber = styled.input`
-       border-radius: 14px;
+  border-radius: 14px;
   background: rgba(247, 247, 251, 1);
   padding: 14px 18px 14px 18px;
   justify-content: center;
@@ -108,4 +77,16 @@ export const InputNumber = styled.input`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-`
+`;
+export const InputNumber = styled.input`
+  border-radius: 14px;
+  background: rgba(247, 247, 251, 1);
+  padding: 14px 18px 14px 18px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(18, 20, 23, 1);
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+`;

@@ -12,17 +12,15 @@ import { AdvertsList, Container } from './Catalog.styled';
 import AdvertItem from 'components/AdvertItem/AdvertItem';
 import ButtonLoad from 'components/ButtonLoad/ButtonLoad';
 import Loader from 'Loader/Loader';
- import { selectIsLoading } from '../../redux/selectors';
+import { selectIsLoading } from '../../redux/selectors';
 
 function Catalog() {
   const dispatch = useDispatch();
- 
   const page = useSelector(state => state.catalog.page);
   const adverts = useSelector(state => state.catalog.adverts);
   const filters = useSelector(state => state.catalog.filters);
-  const error = useSelector((state) => state.catalog.error);
-  const isLoading = useSelector(selectIsLoading)
-
+  const error = useSelector(state => state.catalog.error);
+  const isLoading = useSelector(selectIsLoading);
 
   const onFindMore = () => {
     dispatch(fetchAdverts(1));
@@ -37,15 +35,13 @@ function Catalog() {
       })
       .catch(err => {
         console.error('error:' + err);
-      })
-    
+      });
   };
 
   useEffect(() => {
     if (adverts.length === 0) {
       api(page).then(results => {
-         dispatch(firstAdverts(results));
-        //  dispatch(firstAdvertsSuccess(results));
+        dispatch(firstAdverts(results));
       });
     }
   }, [adverts.length, dispatch, page]);
@@ -70,47 +66,36 @@ function Catalog() {
   });
 
   return (
-  // return isLoading ? (
-  //   <Loader />
-  // ) : (
     <Container className="container">
-    {adverts && (
-      <>
-        {filteredAdverts.length > 0 ? (
-          <AdvertsList>
-            {filteredAdverts.map(advert => {
-              return <AdvertItem key={advert.id} advert={advert} />;
-            })}
-          </AdvertsList>
-        ) : (
-          <>
-          
-            <div>Sorry, no matching adverts found</div>
-          
-        </>
-        )}
-       
-        
-       {/* <ButtonLoad onFindMore={onFindMore} /> */}
+      {adverts && (
+        <>
+          {filteredAdverts.length > 0 ? (
+            <AdvertsList>
+              {filteredAdverts.map(advert => {
+                return <AdvertItem key={advert.id} advert={advert} />;
+              })}
+            </AdvertsList>
+          ) : (
+            <>
+              <div>Sorry, no matching adverts found</div>
+            </>
+          )}
 
-       {/* {isLoading ?  (
+          {/* <ButtonLoad onFindMore={onFindMore} /> */}
+
+          {/* {isLoading ?  (
               <Loader />
             ) : (
               <ButtonLoad onFindMore={onFindMore} />
             )} */}
-         
-         
-         {isLoading && <Loader />}
-{!isLoading && <ButtonLoad onFindMore={onFindMore} />}
-       
-      </>
-    )}
-     {error && <div>Error: {error}</div>}
-  </Container>
-  
+
+          {isLoading && <Loader />}
+          {!isLoading && <ButtonLoad onFindMore={onFindMore} />}
+        </>
+      )}
+      {error && <div>Error: {error}</div>}
+    </Container>
   );
 }
 
 export default Catalog;
-
-
