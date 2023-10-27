@@ -16,7 +16,7 @@ import {
   removeFromFavorites,
 } from '../../redux/favorite/favoriteSlice';
 import iconAdd from './../img/iconAdd.png';
-import heartAmpty from './../img/heartAmpty.png';
+import heartNo from './../img/heartNo.svg';
 
 function AdvertItem({ advert }) {
   const [openModal, setOpenModal] = useState(false);
@@ -60,9 +60,9 @@ function AdvertItem({ advert }) {
         <CarWrapper>
           <Favoritebutton onClick={toggleFavorite}>
             {favorites.some(favorite => favorite.id === advert.id) ? (
-              <img src={iconAdd} alt="icon add" />
+              <img src={iconAdd} alt="icon remove" />
             ) : (
-              <Img src={heartAmpty} alt="icon remove" />
+              <Img src={heartNo} alt="icon add" />
             )}
           </Favoritebutton>
           <CarImage src={advert.img} alt="car img" height={268} />

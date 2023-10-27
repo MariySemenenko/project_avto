@@ -66,7 +66,7 @@ function Catalog() {
   });
 
   return (
-    <Container className='container'>
+    <Container className="container">
       {adverts && (
         <>
           {filteredAdverts.length > 0 ? (
@@ -80,14 +80,6 @@ function Catalog() {
               <div>Sorry, no matching adverts found</div>
             </>
           )}
-
-          {/* <ButtonLoad onFindMore={onFindMore} /> */}
-
-          {/* {isLoading ?  (
-              <Loader />
-            ) : (
-              <ButtonLoad onFindMore={onFindMore} />
-            )} */}
 
           {isLoading && <Loader />}
           {!isLoading && <ButtonLoad onFindMore={onFindMore} />}
