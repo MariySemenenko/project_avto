@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avtopark, P, Container , } from './Home.styled';
-import avtopark from '../../img/avtopark.jpg';
+//import avtopark from '../../img/avtopark.jpg';
 
 
  function Home() {
@@ -12,7 +12,7 @@ import avtopark from '../../img/avtopark.jpg';
       the preparation of taxation and accounting, the conclusion of a car
        rental agreement and the determination of its important conditions.
     </P>
-    <Avtopark className='container' src={avtopark} alt="Car logo" />
+    <Avtopark className='headerHome' alt="Car logo" />
     </Container >
   )
 }
