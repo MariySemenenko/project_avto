@@ -24,5 +24,5 @@ export const P = styled.p`
   right: 50px;
 
   max-height: 80vh;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 `;
