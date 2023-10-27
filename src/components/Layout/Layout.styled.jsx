@@ -33,15 +33,20 @@ export const Div = styled(NavLink)`
     margin-right: 50px;
     text-decoration: none;
 
+    border-radius: 12px;
+     border: 1px solid rgba(18, 20, 23, 1); 
+    padding: 6px 12px;
+    display: flex;
 
     &:hover,
   &:focus {
-    background: #d9dce3;
+    background: rgba(247, 247, 251, 1);
   }
+
+  
 `
 export const Links = styled.li`
-border-radius: 12px;
-    border: 3px solid white;
+display: flex;
     padding: 6px 12px;
     list-style: none;
     `
