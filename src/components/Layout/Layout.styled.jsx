@@ -8,6 +8,7 @@ export const Header = styled.header`
 
   margin-left: 0;
   width: auto;
+ 
 `;
 export const LinkLogo = styled(Link)`
     display: flex;

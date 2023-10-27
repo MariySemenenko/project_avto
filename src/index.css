@@ -30,27 +30,35 @@ li {
   padding: 0;
   margin: 0;
 }
-@media screen and (max-width: 767px) {
+  
+/* tel */
+@media screen and (min-width: 480px) {
   .container {
-    width: 400px;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 428px; 
     margin-left: auto;
     margin-right: auto;
   }
 }
-
+  /* планшет 768+ */
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
-    padding-left: 27px;
-    padding-right: 27px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 736px;
   }
 }
 
-@media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
+    .container {
+      width: 1168px;
+    }
+  }
+/* ----------------------------------- */
+
+
+
+/* 1200+ */
+/* ======================================================= */
+
+@media screen and (min-width: 1200px) {
   .container {
     width: 1440px;
     padding-left: 34px;

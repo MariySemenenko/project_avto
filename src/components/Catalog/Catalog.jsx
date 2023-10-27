@@ -66,7 +66,7 @@ function Catalog() {
   });
 
   return (
-    <Container className="container">
+    <Container className='container'>
       {adverts && (
         <>
           {filteredAdverts.length > 0 ? (

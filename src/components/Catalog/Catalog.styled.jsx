@@ -17,8 +17,13 @@ export const Container = styled.div`
   padding-right: 34px;
   width: 1440px; */
 
-  /* @media screen and (min-width: 834px) {
-    width: 700px;
-  } */
+
+  /* до 767px */
+   /* @media screen and (max-width: 767px) {
+    width: 400px;
+  };
+  @media screen and (max-width: 767px) {
+    width: 400px;
+  }  */
   
 `;

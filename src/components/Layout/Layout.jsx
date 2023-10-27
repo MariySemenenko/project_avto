@@ -6,6 +6,7 @@ function Layout() {
   return (
     <div >
       <Header className='container'>
+        
         <LinkLogo to="/">
           <img  src={avtolog} alt="Car logo" width={100} />
           Welcome to the auto shop

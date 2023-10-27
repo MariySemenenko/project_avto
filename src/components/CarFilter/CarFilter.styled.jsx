@@ -24,8 +24,13 @@ export const Container = styled.div`
   }
 `;
 export const Form = styled.form`
-  display: flex;
-  padding-left: 250px;
+  padding-left: 75px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 export const CarBrand = styled.div`
   width: 224px;
@@ -65,6 +70,8 @@ export const Button = styled.button`
   width: 136px;
   height: 48px;
   margin-bottom: 6px;
+
+  margin-top: 20px;
 `;
 export const Select = styled.select`
   border-radius: 14px;
