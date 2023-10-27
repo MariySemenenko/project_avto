@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avtopark, P, Container , } from './Home.styled';
-//import avtopark from '../../img/avtopark.jpg';
+
 
 
  function Home() {

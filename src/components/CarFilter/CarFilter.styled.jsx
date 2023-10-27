@@ -96,4 +96,5 @@ export const InputNumber = styled.input`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
+  margin-right: 5px;
 `;
